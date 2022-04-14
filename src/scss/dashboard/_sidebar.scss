@@ -1,0 +1,107 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as m;
+
+.sidebar{
+    opacity: 0;
+    background-color: $indigo;
+    height: 0;
+    overflow: hidden;
+    transition-property: opacity height;
+    transition-duration: 500ms;
+
+    &.mostrar{
+       opacity: 1;
+       height: auto;
+       padding: 2rem;
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+     background-color: rgb(0 0 0 / .85);
+       @include m.tablet { 
+           display:block;
+           position: static;
+       }
+
+    }
+
+    @include m.tablet { 
+        display: block;  
+        padding: 2rem;
+        opacity: 1;
+        overflow: auto;
+        height: 100vh;  
+        background-color: $indigo!important; 
+      
+    }
+    .contenedor-sidebar{
+        background-color: $indigo;
+        padding: 2rem 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    
+        @include m.tablet { 
+            display:none;
+        }
+    
+        h2{
+            margin: 0;
+            color: $blanco;
+        }
+
+        .cerrar-menu{
+            cursor: pointer;
+            span{
+                display: block;
+                width: 5rem;
+                height: .5rem;
+                background-color: $blanco;
+                &:first-child{
+                    transform: rotate(45deg);
+                    margin-bottom: -5px;
+                }
+                &:last-child{
+                    transform: rotate(130deg);
+                    margin-top: -5px;
+                }
+            }
+        }
+    }
+    
+    .sidebae-nav{
+        margin-top: 5rem;
+        a{
+            color: $blanco;
+            display: block;
+            margin-bottom: 1.5rem;
+            padding: .7rem;
+            transition-property:  background-color;
+            transition-duration: 300ms;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.5rem;
+            &:hover,
+            &.activo{
+                background-color: darken($color: $indigo, $amount: 20%);
+                border-radius: .5rem;
+            }
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .cerrar-sesion-mobile{
+        margin-top: 10rem;
+
+        @include m.tablet { 
+            display:none;
+        }
+
+        .cerrar-sesion{
+            @include m.boton($indigo, $blanco);
+        }
+    }
+}

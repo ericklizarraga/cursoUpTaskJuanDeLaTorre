@@ -1,0 +1,17 @@
+@use  '../base/variables' as *;
+@use  '../base/mixins' as m;
+
+
+.confirmar{
+    margin-top: 5rem;
+    .uptask{
+        @include m.textDegradado($indigo);
+    }
+
+    .acciones{
+        justify-content: center;
+        a{
+            color: $indigo;
+        }
+    }
+}

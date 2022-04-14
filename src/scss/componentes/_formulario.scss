@@ -1,0 +1,19 @@
+@use  '../base/variables' as *;
+
+.formulario{
+    margin-top: 5rem;
+    .campo{
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        label{
+            flex-basis: 10rem;
+        }
+        input{
+            flex-grow: 1;
+            padding: 1rem;
+            border: none;
+            background-color: lighten($color: $gris, $amount: 40%);
+        }
+    }
+}
